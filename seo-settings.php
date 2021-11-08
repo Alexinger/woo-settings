@@ -15,7 +15,7 @@ License: A "Slug" license name e.g. GPL2
     published by the Free Software Foundation.
 */
 
-require_once(ABSPATH . 'wp-content/plugins/seo-settings/inc/googlesheet/opt-price.php');
+
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 function my_scripts_method()
 {
@@ -25,6 +25,7 @@ function my_scripts_method()
     wp_register_script('my_script', plugins_url('assets/js/script-theme.js', __FILE__), array('jquery'), time());
     wp_enqueue_script('my_script');
 
+    require_once(ABSPATH . 'wp-content/plugins/seo-settings/inc/googlesheet/opt-price.php');
     require_once(ABSPATH . 'wp-content/plugins/seo-settings/inc/googlesheet/index.php');
     require_once(ABSPATH . 'wp-content/plugins/seo-settings/inc/amocrm/amocrm.php');
 }
