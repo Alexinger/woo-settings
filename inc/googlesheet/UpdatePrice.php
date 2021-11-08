@@ -44,7 +44,7 @@ class UpdatePrice
         $array = array_map('str_getcsv', $csv);
 
         /* All row item water - NEW */
-        for ($row = 21; $row < 35; $row++) {
+        for ($row = 21; $row < 40; $row++) {
             /*[50] [151] [751] [1201] [2501] [?] [?] [?] [?] [?]*/
             if(isset($array[$row][0])){
                 update_option($row . '_rows_lefts', $array[$row][0]);
@@ -52,7 +52,7 @@ class UpdatePrice
         }
 
         /* All column item temperature - (const) NEW */
-        for ($header = 0; $header < 10; $header++) {
+        for ($header = 0; $header < 15; $header++) {
             // [-10] [-15] [-20] [-25] [-35] [-35] [-40] [?] [?] [?]
             if(isset($array[20][$header])){
                 $str_c = strpos($array[20][$header], '(');
@@ -62,7 +62,7 @@ class UpdatePrice
 
         /* -10C -15C -20C -25C -30C -35C -40C -45C -50C -55C (50-150) */
         for ($s = 0; $s < 30; $s++) {
-            for ($i = 20; $i < 30; $i++) {
+            for ($i = 20; $i < 35; $i++) {
                 if(isset($array[$i][$s+1])){
                     update_option($i . '_rows_' . $s . '_headers', $array[$i][$s]);
                 }
