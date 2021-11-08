@@ -15,7 +15,7 @@ License: A "Slug" license name e.g. GPL2
     published by the Free Software Foundation.
 */
 
-require_once(ABSPATH . 'wp-content/plugins/seo-settings/inc/googlesheet/opt-price.php');
+require_once ABSPATH . 'wp-content/plugins/seo-settings/inc/googlesheet/opt-price.php';
 
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 function my_scripts_method()
