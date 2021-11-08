@@ -4,7 +4,7 @@
 ?>
 
 <!-- Default form contact -->
-<form class="text-center border border-light p-5 bg-white" action="<?php echo plugins_url('seo-settings/inc/data/request.php') ?>" method="post">
+<form class="text-center border border-light p-5 bg-white" action="<?php echo plugins_url('woo-settings/inc/data/request.php') ?>" method="post">
 
     <p class="h4 mb-4">Настройка шаблона страницы (Landing page)</p>
 

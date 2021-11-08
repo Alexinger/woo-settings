@@ -77,7 +77,7 @@ if (isset($_POST['submit'])) {
     <?php
 }
 
-// /home/alexing/x-ali.ru/www/wp-content/plugins/seo-settings/inc
+// /home/alexing/x-ali.ru/www/wp-content/plugins/woo-settings/inc
 
 function startMessageTelegram($message_telegram)
 {

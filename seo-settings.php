@@ -15,7 +15,7 @@ License: A "Slug" license name e.g. GPL2
     published by the Free Software Foundation.
 */
 
-require_once ABSPATH . 'wp-content/plugins/seo-settings/inc/googlesheet/opt-price.php';
+require_once ABSPATH . 'wp-content/plugins/woo-settings/inc/googlesheet/opt-price.php';
 
 add_action('wp_enqueue_scripts', 'my_scripts_method');
 function my_scripts_method()
@@ -27,8 +27,8 @@ function my_scripts_method()
     wp_enqueue_script('my_script');
 
 
-    require_once(ABSPATH . 'wp-content/plugins/seo-settings/inc/googlesheet/index.php');
-    require_once(ABSPATH . 'wp-content/plugins/seo-settings/inc/amocrm/amocrm.php');
+    require_once(ABSPATH . 'wp-content/plugins/woo-settings/inc/googlesheet/index.php');
+    require_once(ABSPATH . 'wp-content/plugins/woo-settings/inc/amocrm/amocrm.php');
 }
 
 // Added counter Yandex in footer
@@ -87,7 +87,7 @@ function save_option_shortcode()
 
 function wpdocs_enqueue_custom_admin_style()
 {
-    wp_register_style('my_style', 'https://x-ali.ru/wp-content/plugins/seo-settings/assets/css/style.css', false, '1.0.0');
+    wp_register_style('my_style', 'https://x-ali.ru/wp-content/plugins/woo-settings/assets/css/style.css', false, '1.0.0');
 //    wp_register_style( 'custom_wp_admin_css', get_template_directory_uri() . '/admin-style.css', false, '1.0.0' );
 //    wp_enqueue_style( 'custom_wp_admin_css' );
     wp_enqueue_style('my_style');
@@ -454,7 +454,7 @@ add_action('init', 'mayak_button');
 
 function mayak_plugin($plugin_array)
 {
-    $plugin_array['mayak'] = plugins_url('seo-settings/assets/js/added-button.js', time());
+    $plugin_array['mayak'] = plugins_url('woo-settings/assets/js/added-button.js', time());
     return $plugin_array;
 }
 
