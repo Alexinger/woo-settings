@@ -1,7 +1,7 @@
 <?php
 header('Content-Type: text/html; image/jpg; charset=utf-8');
 /*
-Plugin Name: Woo settings plugin
+Plugin Name: Woocommerce setting plugin
 Plugin URI: https://github.com/Alexinger/woo-settings
 Description: Плагин для настройки интернет магазина, оптимизации и ускорения процессов.
 Version: 1.0.1
