@@ -73,7 +73,7 @@ p.woocommerce-shipping-destination {
 }
 
 /* Table style */
-@media screen and (max-width: 1800px) {
+@media screen and (max-width: 2300px) {
     td {
         font-size: 1rem !important;
     }

@@ -57,20 +57,14 @@ if (!get_option('statusTable')) {
             } else {
                 /* Это вычисление для канистр */
                 $termsCanister = get_the_title($item['product_id']);
-/*echo "<br>" . $termsCanister . "<br>";*/
+
                 /*max value counter first row the table*/
                 $rowArrayCanister = max([$lefts_21, $lefts_22, $lefts_23, $lefts_24, $lefts_25, $lefts_26, $lefts_27, $lefts_28, $lefts_29, $lefts_30]);
                 $temperAllCanister = [getCountCanister(get_option('20_rows_1_headers')), getCountCanister(get_option('20_rows_2_headers')), getCountCanister(get_option('20_rows_3_headers')), getCountCanister(get_option('20_rows_4_headers')), getCountCanister(get_option('20_rows_5_headers')), getCountCanister(get_option('20_rows_6_headers')), getCountCanister(get_option('20_rows_7_headers')), getCountCanister(get_option('20_rows_8_headers')), getCountCanister(get_option('20_rows_9_headers')), getCountCanister(get_option('20_rows_10_headers'))];
-               /* echo getCountCanister(get_option('20_rows_1_headers')) . "<br>";
-                echo getCountCanister(get_option('20_rows_2_headers')) . "<br>";
-                echo getCountCanister(get_option('20_rows_3_headers')) . "<br>";
-                echo getCountCanister(get_option('20_rows_4_headers')) . "<br>";
-                echo getCountCanister(get_option('20_rows_5_headers')) . "<br>";*/
-                /*this count products канистры */
                 $counts = $item['quantity'];
 
                 $indexs = array_search(removeSymbolsCanister($termsCanister), $temperAllCanister) +1; // index number && search column price
-                /*echo "Index canister: " . $indexs;*/
+
                 if (removeSymbolsCanister($termsCanister)) {
                     getPriceProductsBackCanister($indexs, $counts, $rowArrayCanister, $item, $lefts_21, $lefts_22, $lefts_23, $lefts_24, $lefts_25, $lefts_26, $lefts_27, $lefts_28, $lefts_29, $lefts_30);
                 }
@@ -102,7 +96,6 @@ if (!get_option('statusTable')) {
 
     function getCount($item)
     {
-        /*var_dump($item);*/
         if (isset($item) && $item !== '' && is_array($item)) {
             foreach ($item as $grad) {
                 if (strlen($grad) > 6) {
@@ -142,7 +135,6 @@ if (!get_option('statusTable')) {
 
     function removeSymbols($var)
     {
-        /*var_dump($var[0]);*/
         $str_0 = $str_1 = null;
         if ((isset($var[0]->name))) {
             $str_0 = preg_replace('/[^0-9]/', '', $var[0]->name);

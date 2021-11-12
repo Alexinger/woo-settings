@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="0324d98e-6cd9-47e4-aa29-9dfbf49ccfbf" name="x-ali">
+        <fileTransfer rootFolder="/home/alexing/x-ali.ru/www/wp-content/plugins/woo-settings" accessType="SFTP" host="alexing.ftp.tools" port="22" sshConfigId="cbfc9942-98b2-4a47-9f10-b47920d80394" sshConfig="alexing@alexing.ftp.tools:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
