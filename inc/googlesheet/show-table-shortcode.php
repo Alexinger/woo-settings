@@ -22,7 +22,7 @@ function get_google_sheet($atts = null)
 
     $start = '<style>th.my-table { color: ' . $atts['table_color_value'] . ' !important;white-space: pre-wrap !important;vertical-align: middle;line-height: 0.7rem !important;}</style>'.
         '<h3 style="margin-bottom: 20px; text-align: center;color: ' . $atts['title_color'] . ';">' . $atts['title'] . '</h3>' .
-        '<table class="table table-bordered table-hover table-my-style" style="background-color: ' . $atts['table_bg'] . '">
+        '<table class="table table-bordered table-hover table-my-style table-striped" style="background-color: ' . $atts['table_bg'] . '">
            <thead style="color: ' . $atts['table_color_value'] . '">
             <tr>';
     for ($i = 0; $i < 16; $i++) {
@@ -71,7 +71,7 @@ function get_google_sheet_canister($atts = null)
 
     $start = '<style>th.my-table { color: ' . $atts['table_color_value'] . ' !important;white-space: pre-wrap !important;vertical-align: middle;line-height: 0.7rem !important;}</style>' .
         '<h3 style="margin-bottom: 20px; text-align: center;color: ' . $atts['title_color'] . ';">' . $atts['title'] . '</h3>' .
-        '<table class="table table-bordered table-hover table-my-style" style="background-color: ' . $atts['table_bg'] . '">
+        '<table class="table table-bordered table-hover table-my-style table-striped" style="background-color: ' . $atts['table_bg'] . '">
            <thead style="color: ' . $atts['table_color_value'] . '">
             <tr>';
     for ($i = 0; $i < 10; $i++) {

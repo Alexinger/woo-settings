@@ -29,13 +29,13 @@
         <div class="tab-pane active in" id="home" role="tabpanel">
             <ul class="nav nav-tabs nav-fill" role="tablist">
                 <li class="nav-item mx-1">
-                    <a class="nav-link text-dark active" data-toggle="tab" href="#shortcode" role="tab"><i class="fa fa-sitemap mr-3"></i>Шорткоды</a>
+                    <a class="nav-link text-dark" data-toggle="tab" href="#shortcode" role="tab"><i class="fa fa-sitemap mr-3"></i>Шорткоды</a>
                 </li>
                 <li class="nav-item mx-1">
                     <a class="nav-link text-dark" data-toggle="tab" href="#left-menu" role="tab"><i class="fa fa-file mr-3"></i>Files upload</a>
                 </li>
                 <li class="nav-item mx-1">
-                    <a class="nav-link text-dark" data-toggle="tab" href="#left-cache" role="tab"><i class="fa fa-trash mr-3"></i>File cache</a>
+                    <a class="nav-link text-dark active" data-toggle="tab" href="#left-cache" role="tab"><i class="fa fa-trash mr-3"></i>File cache</a>
                 </li>
                 <li class="nav-item mx-1">
                     <a class="nav-link text-dark" data-toggle="tab" href="#post-page" role="tab"><i class="fa fa-code-fork mr-3"></i>Post & Page</a>
@@ -46,7 +46,7 @@
             </ul>
 
             <div class="tab-content py-3 border-top-0">
-                <div class="tab-pane active" id="shortcode" role="tabpanel">
+                <div class="tab-pane fade" id="shortcode" role="tabpanel">
 
                     <!-- Shortcode tables google sheets -->
 	                <?php include_once 'tabs-home-shortcode.php'; ?>
@@ -58,7 +58,7 @@
 		            <?php include_once 'tabs-home-amocrm.php'; ?>
 
                 </div>
-                <div class="tab-pane fade" id="left-cache" role="tabpanel">
+                <div class="tab-pane active" id="left-cache" role="tabpanel">
 
                     <!-- Папка cache из которой нужно периодически удалять файлы -->
                     <?php include_once 'tabs-home-cache.php'; ?>

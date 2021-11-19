@@ -261,9 +261,24 @@ table.table-my-style tr td:first-of-type {
 }
 
 table.table-my-style {
-    border: 2px solid #cecece !important;
+    border: 2px solid #686868 !important;
 }
-
-p.price:nth-of-type(2) {
-    color: transparent !important;
+table > thead > tr{
+    border: 1px ridge black !important;
+}
+table > thead > tr > th{
+    border-bottom: 1px solid #969696 !important;
+}
+tr > td:first-child{
+    font-weight: 600;
+    color: darkolivegreen;
+}
+tr > td:first-child:before{
+    margin-right: 5px;
+    content: "от";
+    font-size: 13px;
+}
+tr > td:first-child:after{
+    margin-left: 3px;
+    content: "шт";
 }
