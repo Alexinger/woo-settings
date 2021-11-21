@@ -82,12 +82,12 @@ p.woocommerce-shipping-destination {
     }
 
     th.my-table-th {
-        padding: 8px !important;
+        padding: 10px !important;
         font-size: 13px !important;
         white-space: pre-wrap !important;
         text-align: center !important;
         vertical-align: middle !important;
-        line-height: 0.8rem;
+        line-height: 1rem;
     }
 }
 
@@ -101,12 +101,12 @@ p.woocommerce-shipping-destination {
     }
 
     th.my-table-th {
-        padding: 8px !important;
+        padding: 10px !important;
         font-size: 13px !important;
         white-space: pre-wrap !important;
         text-align: center !important;
         vertical-align: middle !important;
-        line-height: 0.8rem;
+        line-height: .85rem;
     }
 }
 
@@ -153,14 +153,11 @@ table {
 }
 
 th.my-table {
-    /*line-height: 2rem !important;*/
     text-align: center !important;
-    /*white-space: nowrap !important;*/
 }
 
 td.my-table {
-    /*vertical-align: center !important;*/
-    line-height: 2rem !important;
+    line-height: 1rem !important;
     text-align: center !important;
     white-space: nowrap !important;
 }
