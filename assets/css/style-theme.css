@@ -87,7 +87,7 @@ p.woocommerce-shipping-destination {
         white-space: pre-wrap !important;
         text-align: center !important;
         vertical-align: middle !important;
-        line-height: 1rem;
+        line-height: 0.8rem;
     }
 }
 
@@ -266,16 +266,16 @@ table > thead > tr{
 table > thead > tr > th{
     border-bottom: 1px solid #969696 !important;
 }
-tr > td:first-child{
+table.table-my-style tr > td:first-child{
     font-weight: 600;
     color: darkolivegreen;
 }
-tr > td:first-child:before{
+table.table-my-style tr > td:first-child:before{
     margin-right: 5px;
     content: "от";
     font-size: 13px;
 }
-tr > td:first-child:after{
+table.table-my-style tr > td:first-child:after{
     margin-left: 3px;
     content: "шт";
 }
