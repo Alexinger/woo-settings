@@ -51,6 +51,7 @@ if (!get_option('statusTable')) {
 
                 /*start index 0, added +1*/
                 $index = array_search(removeSymbols($terms), getCount($temperAll)) + 1; // index number && search column price
+                /*var_dump(get_option('0_row_0_header'));*/
                 if (removeSymbols($terms)) {
                     getPriceProductsBack($index, $count, $rowArray, $item, $left_1, $left_2, $left_3, $left_4, $left_5, $left_6, $left_7, $left_8, $left_9, $left_10, $left_11, $left_12, $left_13, $left_14, $left_15, $left_16);
                 }
@@ -97,7 +98,9 @@ if (!get_option('statusTable')) {
     function getCount($item)
     {
         if (isset($item) && $item !== '' && is_array($item)) {
+
             foreach ($item as $grad) {
+
                 if (strlen($grad) > 6) {
                     /*var_dump("Больше 6: " . $grad);*/
                     $msg = array();
@@ -105,7 +108,7 @@ if (!get_option('statusTable')) {
                     foreach ($x as $i) {
                         $msg[] = substr($i, 0, 2);
                     }
-                    $set = $msg;;
+                    $set = $msg;
                     return $set;
                 }
             }

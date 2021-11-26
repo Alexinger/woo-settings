@@ -29,8 +29,8 @@ class UpdatePrice
         /* -10C -15C -20C -25C -30C -35C -40C -45C -50C -55C (50-150) */
         for ($s = 0; $s < 15; $s++) {
             for ($i = 0; $i < 15; $i++) {
-                if(isset($array[$i][$s+1])){
-                    update_option($i . '_row_' . $s . '_header', $array[$i][$s + 1]);
+                if(isset($array[$i][$s])){
+                    update_option($i . '_row_' . $s . '_header', $array[$i][$s]);
                 }
             }
         }
