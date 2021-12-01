@@ -82,7 +82,7 @@ if (!get_option('statusTable')) {
                 echo "<a href='/404' class='button woocommerce-store-notice' style='margin-bottom: 15px'>Перейти в контакты</a>";
             }
         } else {
-            $this_price = $product->get_price() * get_option('woo-percent') . ' ₽';
+            $this_price = $product->get_price() . ' ₽';
             echo $this_price;
         }
     }
