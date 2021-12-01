@@ -35,6 +35,24 @@
             <span class="font-italic text-dark" style="white-space: pre-wrap;">='Здесь цвет значений в таблице (green, white, black, ...) или (#232e33, #354fff, #3a3ef1, ...)'</span>
         </code>
     </div>
+    <h4 class="w-100 font-weight-bold text-center border-bottom border-dark mb-3 mt-4 pb-3">Подключение данных в таблице</h4>
+    <div class="d-flex w-100 justify-content-around">
+        <div class="text-center d-flex flex-column">
+            <h4>Незамерзайка</h4>
+            <span>Начальная точка <code>A1</code></span>
+            <span>Конечная точка <code>A15</code></span>
+        </div>
+        <div class="text-center d-flex flex-column">
+            <h4>Евроканистры</h4>
+            <span>Начальная точка <code>A21</code></span>
+            <span>Начальная точка <code>A40</code></span>
+        </div>
+        <div class="text-center d-flex flex-column">
+            <h4>Процент умножения</h4>
+            <span>Слово "процент" <code>A41</code></span>
+            <span>Число процента <code>B41</code> = <span><?=get_option('woo-percent') ?></span>%</span>
+        </div>
+    </div>
     <h4 class="w-100 font-weight-bold text-center border-bottom border-dark mb-3 mt-4 pb-3">Как подключить таблицу?</h4>
     <span>В строке url взять только то, что выделенно черным цветом</span>
     <code>https://docs.google.com/spreadsheets/d/<span class="font-weight-bold text-body">19Tv0hdhBAmniibBTt2TKlXRtdhki6Rr3KSRMh-AcpTc</span>/edit#gid=<span

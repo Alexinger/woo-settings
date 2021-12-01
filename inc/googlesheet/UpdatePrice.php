@@ -34,6 +34,7 @@ class UpdatePrice
                 }
             }
         }
+        $this->getPercentDiscount($array);
     }
     public function update_get_option_canister()
     {
@@ -70,5 +71,11 @@ class UpdatePrice
         }
 
 
+    }
+    public function getPercentDiscount($array){
+        if(mb_strtolower($array[40][0]) === 'процент'){
+            echo "Процент умноженный на цену товара: " . $array[40][1];
+            update_option('woo-percent', $array[40][1]);
+        }
     }
 }
