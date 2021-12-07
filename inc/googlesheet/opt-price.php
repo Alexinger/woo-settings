@@ -214,12 +214,13 @@ if (!get_option('statusTable')) {
     function cart_update_qty_script()
     {
         if (is_cart()) : ?>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
             <script>
-                (function ($){
+                (function (){
                     $('div.woocommerce').on('blur', '.qty', function () {
                         $("[name='update_cart']").trigger("click");
                     });
-                })(JQuery);
+                })();
             </script>
         <?php endif;
     }
@@ -255,56 +256,67 @@ if (!get_option('statusTable')) {
         return $args;
     }
 
+    /*Проверка процента умножения товара в корзине*/
+    function getPercentIndex(){
+
+        $getNumber = (float)str_replace(',', '.', get_option('woo-percent'));
+        if(is_float($getNumber) && $getNumber != 0 && $getNumber != ''){
+            return $getNumber;
+        } else {
+            return 1;
+        }
+    }
+
     function getPriceProductsBack($index, $count, $rowArray, $item, $left_1, $left_2, $left_3, $left_4, $left_5, $left_6, $left_7, $left_8, $left_9, $left_10, $left_11, $left_12, $left_13, $left_14, $left_15, $left_16)
     {
         if ($count < $rowArray) {
             if ($count <= $left_1) {
-                $item['data']->set_price(get_option('1_row_' . $index . '_header'));
+                $item['data']->set_price(get_option('1_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_1 && $count <= $left_2 && get_option('1_row_' . $index . '_header') !== '-') {
-                $item['data']->set_price(get_option('1_row_' . $index . '_header'));
+                $item['data']->set_price(get_option('1_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_2 && $count <= $left_3 && get_option('2_row_' . $index . '_header') !== '-') {
-                getCount(get_option('2_row_' . $index . '_header')) ? $item['data']->set_price(get_option('2_row_' . $index . '_header')) : $item['data']->set_price(get_option('1_row_' . $index . '_header'));
+                getCount(get_option('2_row_' . $index . '_header')) ? $item['data']->set_price(get_option('2_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('1_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_3 && $count <= $left_4 && get_option('3_row_' . $index . '_header') !== '-') {
-                getCount(get_option('3_row_' . $index . '_header')) ? $item['data']->set_price(get_option('3_row_' . $index . '_header')) : $item['data']->set_price(get_option('2_row_' . $index . '_header'));
+                getCount(get_option('3_row_' . $index . '_header')) ? $item['data']->set_price(get_option('3_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('2_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_4 && $count <= $left_5 && get_option('4_row_' . $index . '_header') !== '-') {
-                getCount(get_option('4_row_' . $index . '_header')) ? $item['data']->set_price(get_option('4_row_' . $index . '_header')) : $item['data']->set_price(get_option('3_row_' . $index . '_header'));
+                getCount(get_option('4_row_' . $index . '_header')) ? $item['data']->set_price(get_option('4_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('3_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_5 && $count <= $left_6 && get_option('5_row_' . $index . '_header') !== '-') {
-                getCount(get_option('5_row_' . $index . '_header')) ? $item['data']->set_price(get_option('5_row_' . $index . '_header')) : $item['data']->set_price(get_option('4_row_' . $index . '_header'));
+                getCount(get_option('5_row_' . $index . '_header')) ? $item['data']->set_price(get_option('5_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('4_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_6 && $count <= $left_7 && get_option('6_row_' . $index . '_header') !== '-') {
-                getCount(get_option('6_row_' . $index . '_header')) ? $item['data']->set_price(get_option('6_row_' . $index . '_header')) : $item['data']->set_price(get_option('5_row_' . $index . '_header'));
+                getCount(get_option('6_row_' . $index . '_header')) ? $item['data']->set_price(get_option('6_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('5_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_7 && $count <= $left_8 && get_option('7_row_' . $index . '_header') !== '-') {
-                getCount(get_option('7_row_' . $index . '_header')) ? $item['data']->set_price(get_option('7_row_' . $index . '_header')) : $item['data']->set_price(get_option('6_row_' . $index . '_header'));
+                getCount(get_option('7_row_' . $index . '_header')) ? $item['data']->set_price(get_option('7_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('6_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_8 && $count <= $left_9 && get_option('8_row_' . $index . '_header') !== '-') {
-                getCount(get_option('8_row_' . $index . '_header')) ? $item['data']->set_price(get_option('8_row_' . $index . '_header')) : $item['data']->set_price(get_option('7_row_' . $index . '_header'));
+                getCount(get_option('8_row_' . $index . '_header')) ? $item['data']->set_price(get_option('8_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('7_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_9 && $count <= $left_10 && get_option('9_row_' . $index . '_header') !== '-') {
-                getCount(get_option('9_row_' . $index . '_header')) ? $item['data']->set_price(get_option('9_row_' . $index . '_header')) : $item['data']->set_price(get_option('8_row_' . $index . '_header'));
+                getCount(get_option('9_row_' . $index . '_header')) ? $item['data']->set_price(get_option('9_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('8_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_10 && $count <= $left_11 && get_option('10_row_' . $index . '_header') !== '-') {
-                getCount(get_option('10_row_' . $index . '_header')) ? $item['data']->set_price(get_option('10_row_' . $index . '_header')) : $item['data']->set_price(get_option('9_row_' . $index . '_header'));
+                getCount(get_option('10_row_' . $index . '_header')) ? $item['data']->set_price(get_option('10_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('9_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_11 && $count <= $left_12 && get_option('11_row_' . $index . '_header') !== '-') {
-                getCount(get_option('11_row_' . $index . '_header')) ? $item['data']->set_price(get_option('11_row_' . $index . '_header')) : $item['data']->set_price(get_option('10_row_' . $index . '_header'));
+                getCount(get_option('11_row_' . $index . '_header')) ? $item['data']->set_price(get_option('11_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('10_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_12 && $count <= $left_13 && get_option('12_row_' . $index . '_header') !== '-') {
-                getCount(get_option('12_row_' . $index . '_header')) ? $item['data']->set_price(get_option('12_row_' . $index . '_header')) : $item['data']->set_price(get_option('11_row_' . $index . '_header'));
+                getCount(get_option('12_row_' . $index . '_header')) ? $item['data']->set_price(get_option('12_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('11_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_13 && $count <= $left_14 && get_option('13_row_' . $index . '_header') !== '-') {
-                getCount(get_option('13_row_' . $index . '_header')) ? $item['data']->set_price(get_option('13_row_' . $index . '_header')) : $item['data']->set_price(get_option('12_row_' . $index . '_header'));
+                getCount(get_option('13_row_' . $index . '_header')) ? $item['data']->set_price(get_option('13_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('12_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_14 && $count <= $left_15 && get_option('14_row_' . $index . '_header') !== '-') {
-                getCount(get_option('14_row_' . $index . '_header')) ? $item['data']->set_price(get_option('14_row_' . $index . '_header')) : $item['data']->set_price(get_option('13_row_' . $index . '_header'));
+                getCount(get_option('14_row_' . $index . '_header')) ? $item['data']->set_price(get_option('14_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('13_row_' . $index . '_header') * getPercentIndex());
             }
             if ($count >= $left_15 && $count <= $left_16 && get_option('15_row_' . $index . '_header') !== '-') {
-                getCount(get_option('15_row_' . $index . '_header')) ? $item['data']->set_price(get_option('15_row_' . $index . '_header')) : $item['data']->set_price(get_option('14_row_' . $index . '_header'));
+                getCount(get_option('15_row_' . $index . '_header')) ? $item['data']->set_price(get_option('15_row_' . $index . '_header') * getPercentIndex()) : $item['data']->set_price(get_option('14_row_' . $index . '_header') * getPercentIndex());
             }
         } else {
             $columnArray = [get_option('1_row_' . $index . '_header'), get_option('2_row_' . $index . '_header'), get_option('3_row_' . $index . '_header'), get_option('4_row_' . $index . '_header'), get_option('5_row_' . $index . '_header'), get_option('6_row_' . $index . '_header'), get_option('7_row_' . $index . '_header'), get_option('8_row_' . $index . '_header'), get_option('9_row_' . $index . '_header'), get_option('10_row_' . $index . '_header'), get_option('11_row_' . $index . '_header'), get_option('12_row_' . $index . '_header'), get_option('13_row_' . $index . '_header'), get_option('14_row_' . $index . '_header'), get_option('15_row_' . $index . '_header'), get_option('16_row_' . $index . '_header')];

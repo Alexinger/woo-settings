@@ -39,7 +39,6 @@ if (!get_option('statusTable')) {
 
         $product = $cart_item['data'];
         $min = get_option('1_row_left');
-
         // hi
         return woocommerce_quantity_input(
             array(
