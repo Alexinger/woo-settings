@@ -1,0 +1,20 @@
+ul.custom_cart_active{
+    list-style: none;
+}
+.custom_cart_active a img{
+    width: 50px;
+    border: 1px solid #e3e3e3;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.custom_cart_active li a {
+    line-height: 1rem;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.custom_cart_active .mini_cart_item{
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+}

@@ -1,10 +1,10 @@
-<?php $list = list_files(WP_CONTENT_DIR . '/cache', 3); ?>
+<?php /*$list = list_files(WP_CONTENT_DIR . '/cache', 3); */?>
 
 <div class="card-group bg-white border rounded p-3 my-2">
 
-    <div class="mt-2 w-100">
-        <?php
-        $mb = recurse_dirsize(WP_CONTENT_DIR . '/cache');
+    <<!--div class="mt-2 w-100">
+        --><?php
+/*        $mb = recurse_dirsize(WP_CONTENT_DIR . '/cache');
         $s = 0;
         $path = ABSPATH . 'wp-content/cache/autoptimize/index.html';
         unlink($path);
@@ -22,35 +22,62 @@
 
         echo '<div class="text-right border-top mt-2">Размер папки: ' . number_format($mb / (1024 * 1024), 1) . ' MB' . '</div>';
 
-        ?>
+        */?>
     </div>
     <div>
-    </div>
-</div>
-<div>
-    <h3>Удаление файлов из папки</h3>
-    <div>
-
     </div>
 </div>
 
 <?php
 
-$files = glob($_SERVER['DOCUMENT_ROOT'] . 'wp-content/cache/autoptimize/*.*');
-$dir = $_SERVER['DOCUMENT_ROOT'] . 'wp-content/cache/autoptimize';
-/*$di = new RecursiveDirectoryIterator($dir, FilesystemIterator::SKIP_DOTS);
-$ri = new RecursiveIteratorIterator($di, RecursiveIteratorIterator::CHILD_FIRST);
-foreach ( $ri as $file ) {
-    $file->isDir() ?  rmdir($file) : unlink($file);
-    echo $file . '<br>';
-}*/
-
-
-foreach (new DirectoryIterator($dir) as $fileInfo) {
-    if(!$fileInfo->isDot()) {
-        /*unlink($fileInfo->getPathname());*/
-        echo $fileInfo->isDot() . "<br>";
+function RemoveDir($path)
+{
+    if(file_exists($path) && is_dir($path))
+    {
+        $dirHandle = opendir($path);
+        while (false !== ($file = readdir($dirHandle)))
+        {
+            if ($file!='.' && $file!='..')// исключаем папки с названием '.' и '..'
+            {
+                $tmpPath=$path.'/'.$file;
+                chmod($tmpPath, 0777);
+                if (is_dir($tmpPath))
+                {  // если папка
+                    RemoveDir($tmpPath);
+                }
+                else
+                {
+                    if(file_exists($tmpPath))
+                    {
+                        // удаляем файл
+                        unlink($tmpPath);
+                    }
+                }
+            }
+        }
+        closedir($dirHandle);
+        // удаляем текущую папку
+        /*if(file_exists($path))
+        {
+            rmdir($path);
+        }*/
+    }
+    else
+    {
+        echo "Удаляемой папки не существует или это файл!";
     }
 }
 
+// путь от корня сайта
+/*$DeletedFolder='/trest';*/
+/*RemoveDir($_SERVER['DOCUMENT_ROOT'].$DeletedFolder);*/
 
+?>
+
+<!--<button onclick="<?php /*RemoveDir($_SERVER['DOCUMENT_ROOT'].$DeletedFolder) */?>" class="btn btn-danger btn-md">Удалить файлы</button>-->
+
+<?php
+
+/*1. Добавить автоматическую очистку */
+/*2. Вывести файлы из папки */
+/*2. Показать размер папки */

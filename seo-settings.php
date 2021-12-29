@@ -14,6 +14,7 @@ License: A "Slug" license name e.g. GPL2
     it under the terms of the GNU General Public License, version 2, as
     published by the Free Software Foundation.
 */
+add_filter('widget_text','do_shortcode');
 
 require_once ABSPATH . 'wp-content/plugins/woo-settings/inc/googlesheet/opt-price.php';
 
@@ -33,6 +34,7 @@ function my_scripts_method()
 
 // Added counter Yandex in footer
 include_once 'counter/counter-yandex.php';
+include_once 'inc/shortcode/cart/short-cart.php';
 
 add_action('wp_ajax_save_yandex', 'save_yandex_count');
 function save_yandex_count()
@@ -604,3 +606,4 @@ function so_29985124_order_item_title( $title, $order_item ) {
     $title = $title . ' (или аналогичная)';
     return $title;
 }
+
